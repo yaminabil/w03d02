@@ -600,5 +600,158 @@ console.log( printLongestWord (["BoJack", "Princess",
 "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
 
 
+/*------------------------*/
+/* Objects ---------------*/
+/*------------------------*/
+
+// A - Maker a user object 
+//--------------------------/
+
+ const user = {
+
+    name : "bilal",
+    email : "bilal94.younes@gmail.com",
+    age : 27 ,
+    purchased : []
+}
+
+
+// B - Update the user 
+//----------------------//
+
+
+user.email = "bilal.marines1994@gmail.com";
+user.age++;
+console.log (user);
+
+
+
+// C - Adding Keys and Values 
+//----------------------------//
+
+user.location = "columbus";
+console.log (user);
+
+
+
+// D - Shopaholic!
+//-----------------//
+
+user.purchased.push ("carbohydrates");
+user.purchased.push ("peace of mind");
+user.purchased.push ("Merino jodhpurs");
+console.log (user);
+console.log (user.purchased [2]);
+
+
+// E - Object-within-object 
+//--------------------------//
+
+user.friend = { 
+    name : "Grace Hopper",
+    age  : 85 ,
+    location : "killeen,Tx",
+    purchased : []
+}
+
+console.log (user.friend.name);
+console.log (user.friend.location);
+
+user.friend.age = 55 ;
+user.friend.purchased.push("The One Ring");
+user.friend.purchased.push("A latte");
+console.log (user);
+
+console.log(user.friend.purchased [1]);
+
+console.log ("--------> next <----------");
+
+// F - Loops 
+//------------//
+
+for (let i = 0 ; i < user.purchased.length ; i++){
+console.log (user.purchased [i]);
+}
+
+console.log ("---------> next <-------");
+
+for (let i = 0 ; i < user.friend.purchased.length ; i++ ) {
+    console.log (user.friend.purchased [i]);
+}
+
+
+
+// G - Functions can operate on Objects 
+// --------------------------------------------//
+
+const updateUser = () => {
+    user.age ++ ;
+    user.name = user.name.toUpperCase();
+}
+
+updateUser ();
+console.log (user);
+console.log (typeof(user));
+
+
+
+const oldAndLoud = (person) => {
+  if ( typeof(person) == "object") {
+  person.age ++ ;
+  person.name = person.name.toUpperCase (); 
+  } else console.log("your argument is not an object ");
+}
+
+
+oldAndLoud (user); 
+console.log (user);
+
+
+
+
+/*---------------------------*/
+/* Cat Combinator  ----------*/
+/*---------------------------*/
+
+
+
+const cat1 = { 
+    name : "djano",
+    breed : "Van Cat",
+    age : 5 
+}
+
+console.log ("---------> next <---------");
+console.log (cat1.age);
+console.log (cat1.breed);
+
+
+const cat2 = { 
+    name : "lucy",
+    breed : "snowshoe cat",
+    age : 9
+}
+
+
+const combineCats = (papa , mama) => { 
+    let object = { 
+        name : papa.name+mama.name,
+        age : 1 ,
+        breed : papa.breed +"-"+mama.breed
+    }
+    return object ;
+}
+
+
+console.log (combineCats (cat1,cat2));
+
+
+
+
+// 4 - Cat brain bender  
+//----------------------------//
+
+
+console.log ( combineCats(combineCats(combineCats(cat1, cat2), combineCats(cat1, cat2)),combineCats(combineCats(cat1, cat2), combineCats(cat1, cat2))));
 
 
